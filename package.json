@@ -1,0 +1,25 @@
+{
+  "name": "myretail",
+  "version": "1.0.0",
+  "description": "myRetail is a rapidly growing company with HQ in Richmond, VA and over 200 stores\r across the east coast. myRetail wants to make its internal data available to any number\r of client devices, from myRetail.com to native mobile apps.\r The goal for this exercise is to create an end-to-end Proof-of-Concept for a products API,\r which will aggregate product data from multiple sources and return it as JSON to the\r caller.\r Your goal is to create a RESTful service that can retrieve product and price details by ID.\r The URL structure is up to you to define, but try to follow some sort of logical\r convention.\r Build an application that performs the following actions:\r - Responds to an HTTP GET request at /products/{id} and delivers product data as\r JSON (where {id} will be a number.\r - Example product IDs: 15117729, 16483589, 16696652, 16752456, 15643793)\r - Example response: {\"id\":13860428,\"name\":\"The Big Lebowski (Blu-ray)\r (Widescreen)\",\"current_price\":{\"value\": 13.49,\"currency_code\":\"USD\"}}\r - Performs an HTTP GET to retrieve the product name from an external API. (For\r this exercise the data will come from redsky.target.com, but let’s just pretend\r this is an internal resource hosted by myRetail)  \r - Example:\r http://redsky.target.com/v2/pdp/tcin/13860428?excludes=taxonomy,price,promotion,bulk\r _ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statist\r ics\r - Reads pricing information from a NoSQL data store and combines it with the\r product id and name from the HTTP request into a single response.  \r - BONUS: Accepts an HTTP PUT request at the same path (/products/{id}),\r containing a JSON request body similar to the GET response, and updates the\r product’s price in the data store.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakshianand/Target-Technical-Case-Study.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sakshianand/Target-Technical-Case-Study/issues"
+  },
+  "homepage": "https://github.com/sakshianand/Target-Technical-Case-Study#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
+  }
+}
