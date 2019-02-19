@@ -1,7 +1,46 @@
 const express = require('express')
 const app = express();
 const axios = require('axios')
+const mongoose = require('mongoose');
+const path = require('path');
 
+
+app.use('/products',require(path.join(__dirname,'./server/products')))
+
+app.listen(8000, () => {
+  console.log('Application listening on port 8000!')
+});
+
+
+
+
+//Set up default mongoose connection
+var mongoUrl = 'mongodb://localhost:27017/product';
+
+mongoose.connect(mongoUrl,{
+  useNewUrlParser:true
+});
+
+mongoose.connection.on('connected',()=>{
+  console.log("mongoose is now connected to",mongoUrl)
+});
+
+mongoose.connection.on('error',()=>{
+  console.log("error in mongoose connection",err);
+
+mongoose.connection.on('disconnected',()=>{
+  console.log("mongoose is now disconnected");
+});
+
+process.on('SIGINT',()=>{
+    mongoose.connection.close(()=>{
+      console.log('mongoose disconnected on process termination')
+    });
+  });
+});
+
+
+// app.use('/products/:id',require(path.join(__dirname,'./server/products')))
 app.get('/products/:id',(req,res) =>{
    axios.get("https://redsky.target.com/v2/pdp/tcin/"+req.params.id)
    .then( (response)=>{
@@ -10,10 +49,7 @@ app.get('/products/:id',(req,res) =>{
           res.send({"id":id,"title":title});
    })
    .catch((err)=>{
-     console.log("No product of the specified id found")
+     console.log(err)
    }); 
 })
 
-app.listen(8000, () => {
-  console.log('Example app listening on port 8000!')
-});
