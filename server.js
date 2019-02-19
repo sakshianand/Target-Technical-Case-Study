@@ -7,9 +7,12 @@ const path = require('path');
 
 app.use('/products',require(path.join(__dirname,'./server/products')))
 
-app.listen(8000, () => {
-  console.log('Application listening on port 8000!')
-});
+// app.listen(8000, () => {
+//   console.log('Application listening on port 8000!')
+// });
+app.listen(process.env.PORT || 5000,()=>{
+   console.log('Application listening on port 5000!')
+})
 
 
 
