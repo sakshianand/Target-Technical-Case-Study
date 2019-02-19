@@ -18,8 +18,8 @@ getProductInfo = (id)=>{
 
     })
     .catch(err=>res.status(500).json({
-        error:"Server error"
-    })); 
+        error:"Network error"
+    }))
 }
 
 module.exports = {
