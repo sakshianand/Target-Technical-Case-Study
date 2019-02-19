@@ -15,7 +15,7 @@ app.listen(8000, () => {
 
 
 //Set up default mongoose connection
-var mongoUrl = 'mongodb://localhost:27017/product';
+var mongoUrl = 'mongodb://root:root@ds01316.mlab.com:1316/product';
 
 mongoose.connect(mongoUrl,{
   useNewUrlParser:true
