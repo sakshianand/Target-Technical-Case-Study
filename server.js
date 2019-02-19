@@ -28,7 +28,7 @@ mongoose.connection.on('connected',()=>{
   console.log("mongoose is now connected to",mongoUrl)
 });
 
-mongoose.connection.on('error',()=>{
+mongoose.connection.on('error',(err)=>{
   console.log("error in mongoose connection",err);
 
 mongoose.connection.on('disconnected',()=>{
