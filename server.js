@@ -15,7 +15,7 @@ app.listen(8000, () => {
 
 
 //Set up default mongoose connection
-var mongoUrl = 'mongodb+srv://root:root@cluster0-6vjmi.mongodb.net/product?retryWrites=true';
+var mongoUrl = 'mongodb://root:root@ds141815.mlab.com:41815/heroku_v3nz5dtm';
 
 mongoose.connect(mongoUrl,{
   useNewUrlParser:true
