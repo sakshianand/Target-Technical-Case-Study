@@ -24,7 +24,7 @@ app.listen(process.env.PORT || 5000,()=>{
 
 //Set up default mongoose connection
 var mongoUrl = 'mongodb://root:root%40123@ds141815.mlab.com:41815/heroku_v3nz5dtm';
-// var mongoUrl = 'mongodb://127.0.0.1:27017/product';
+
 mongoose.connect(mongoUrl,{
   useNewUrlParser:true
 });
