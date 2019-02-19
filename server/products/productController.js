@@ -22,6 +22,23 @@ getProductInfo = (id)=>{
     }))
 }
 
+productUpdation=(req, successCB, errorCB)=> {
+    return productModel.findOneAndUpdate({
+        'product_id': req.body.product_id
+    }, {
+         $set: {
+                'product_id':req.body.product_id,
+                'title': req.body.title,
+                "current_price":req.body.current_price
+            }
+        }).then((res)=>{
+            return "Success"
+        }).catch(err=>{return err}) 
+                
+            }
+
+
 module.exports = {
-    getProductInfo:getProductInfo
+    getProductInfo:getProductInfo,
+    productUpdation:productUpdation
 }

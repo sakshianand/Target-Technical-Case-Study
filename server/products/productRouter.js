@@ -7,5 +7,27 @@ router.get('/:id',(req,res)=>{
         error:"Product Information with the specified id not found or Check your Internet connection"
     }))
 });
+// router.put('/:id',(req,res)=>{
+//     console.log(req.body);
+//     productController.productUpdation(req.params.id,req.body)
+//     .then(response=>res.send("updated successfully"))
+//     .catch(err=>res.status(404).json({
+//         error:err
+//     }))
+// })
+router.put("/:id",  (req, res)=> {
+    console.log(req.body);
+    productController.productUpdation(req) 
+        .then(resp=>{
+            console.log("Success");
+        res.send("Success")
+        }
+    )
+    .catch(err=>{
+    res.status(500).json({
+        error: "Server error...try again later"
+    });
+})
+});
 
 module.exports = router;

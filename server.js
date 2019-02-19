@@ -3,8 +3,13 @@ const app = express();
 const axios = require('axios')
 const mongoose = require('mongoose');
 const path = require('path');
+const bodyParser = require('body-parser');
 
-
+// use middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use('/products',require(path.join(__dirname,'./server/products')))
 
 // app.listen(8000, () => {
@@ -18,8 +23,8 @@ app.listen(process.env.PORT || 5000,()=>{
 
 
 //Set up default mongoose connection
-var mongoUrl = 'mongodb://root:root@ds141815.mlab.com:41815/heroku_v3nz5dtm';
-
+var mongoUrl = 'mongodb://root:root%40123@ds141815.mlab.com:41815/heroku_v3nz5dtm';
+// var mongoUrl = 'mongodb://127.0.0.1:27017/product';
 mongoose.connect(mongoUrl,{
   useNewUrlParser:true
 });
