@@ -6,6 +6,7 @@
  Example : http://casestudy-myretail-target.herokuapp.com/products/13860428       [GET REQUEST]
  
  Response :
+ ```
  {
     "id": "13860428",
     "title": "The Big Lebowski (Blu-ray)",
@@ -14,9 +15,12 @@
         "currency_code": "USD"
     }
 }
+```
 
 2. HTTP PUT request at /products/{id} - Updates the product's price in the Database.
-   Request Body :  {
+   Request Body :  
+   ```
+   {
     "id": "13860428",
     "title": "The Big Lebowski (Blu-ray)",
     "current_price": {
@@ -24,6 +28,8 @@
         "currency_code": "USD"
     }
 }
+```
+
 
 Example: http://casestudy-myretail-target.herokuapp.com/products/13860428   [PUT REQUEST]
          Request Body: {
