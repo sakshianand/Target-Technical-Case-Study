@@ -12,9 +12,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use('/products',require(path.join(__dirname,'./server/products')))
 
-// app.listen(8000, () => {
-//   console.log('Application listening on port 8000!')
-// });
 app.listen(process.env.PORT || 5000,()=>{
    console.log('Application listening on port 5000!')
 })
@@ -48,16 +45,5 @@ process.on('SIGINT',()=>{
 });
 
 
-// app.use('/products/:id',require(path.join(__dirname,'./server/products')))
-app.get('/products/:id',(req,res) =>{
-   axios.get("https://redsky.target.com/v2/pdp/tcin/"+req.params.id)
-   .then( (response)=>{
-       let id = response.data.product.item.tcin 
-       let title = response.data.product.item.product_description.title
-          res.send({"id":id,"title":title});
-   })
-   .catch((err)=>{
-     console.log(err)
-   }); 
-})
+
 
