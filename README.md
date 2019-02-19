@@ -18,11 +18,10 @@
 ```
 
 2. HTTP PUT request at /products/{id} - Updates the product's price in the Database.
-   Request Body :  
- 
   ```
- {
-    "id": "13860428",
+   Request Body : 
+{
+    "product_id": "13860428",
     "title": "The Big Lebowski (Blu-ray)",
     "current_price": {
         "value": 40,
@@ -38,7 +37,7 @@ Example: http://casestudy-myretail-target.herokuapp.com/products/13860428   [PUT
   ```
   Request Body
  {
-    "id": "13860428",
+    "product_id": "13860428",
     "title": "The Big Lebowski (Blu-ray)",
     "current_price": {
         "value": 40,
